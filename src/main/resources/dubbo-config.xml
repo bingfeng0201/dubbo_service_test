@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                             http://www.springframework.org/schema/beans/spring-beans.xsd
+                             http://code.alibabatech.com/schema/dubbo
+                             http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+
+http://www.springframework.org/schema/beans ">
+
+
+
+    <!--1：起名-->
+    <dubbo:application name="dubbotest"/>
+    <!--2：链接zookeeper redis-->
+    <dubbo:registry protocol="zookeeper" address="zookeeper://101.200.143.74:2181?backup=123.56.70.138:2181,182.92.150.126:2181" />
+
+    <dubbo:reference id="openBalanceService" interface="com.imxiaomai.member.service.OpenBalanceService" group="TEST" version="1.0.0" timeout="5000" check="false"/>
+
+
+</beans>
